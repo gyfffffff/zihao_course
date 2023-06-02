@@ -107,7 +107,54 @@ A股、港股、美股市值最高的上市公司，哪些公司的核心资产�
 
 斯坦福原版视频：https://www.youtube.com/watch?v=P-m1Qv6-8cI&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=3
 
+图的种类：
+
+- 本体图Ontology：相当于一个类；设计取决于图的用途
+- 无向图，有向图
+- 异质图，二分图（种类=2）
+- 展开二分图
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230602090910830.png" alt="image-20230602090910830" style="zoom:50%;" />
+
+节点连接数：
+
+- node degree ki
+
+- 平均连接数：总连接/节点数
+
+- source,sink节点
+
+- 有向图，k_in,k_out连接一一对应，所以（平均）入度等于（平均）出度
+
+  
+
+图的表示：
+
+- 邻接矩阵，可以用邻接矩阵算所有图的信息
+- 连接列表、邻接列表
+
+其他种类的图：
+
+- 带权重，带自环，多连接
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230602091853252.png" alt="image-20230602091853252" style="zoom:50%;" />
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230602092000895.png" alt="image-20230602092000895" style="zoom:50%;" />
+
+
+
+连通性：
+
+- 全连接
+- 连通域
+- 强连通SCC，弱连通。SCC分解
+
+
+
+
+
 ## 扩展阅读
+
 如何解释人际交往中的「六度空间」理论，它是如何证明的？：https://www.zhihu.com/question/27492995/answer/37841402
 
 ## 思考题
@@ -122,7 +169,7 @@ A股、港股、美股市值最高的上市公司，哪些公司的核心资产�
 
 如何设计本体图Ontology？
 
-为什么要把图表示成矩阵？
+为什么要把图表示成矩阵？因为要把图翻译成计算机语言。
 
 如何从连通域的角度，理解“六度空间”理论：世界上任意两个人，可以通过不超过六个中间人，相互认识。
 

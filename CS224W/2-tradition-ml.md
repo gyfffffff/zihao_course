@@ -20,6 +20,43 @@ https://www.youtube.com/watch?v=buzsHTa4Hgs&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imN
 
 # 传统图机器学习方法-节点
 
+一个节点：属性特征，连接特征，本讲讲连接特征
+
+特征工程重要性：garbage in garbage out.
+
+- node degree, 只看数量，不看质量
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230602093806218.png" alt="image-20230602093806218" style="zoom:50%;" />
+
+- node centrality：
+
+  一个节点的centrality 是他相邻节点centrality求平均，所有节点的centrality向量等价于邻接矩阵的特征向量。
+
+- betweenness centrality
+
+$$
+c_v = \Sigma_{s \neq v \neq t}\frac{\text{其中通过v的最短路径有几条}}{s,t之间最短路径有几条}
+$$
+
+- closeness centrlity
+  $$
+  c_v = \frac{1}{\Sigma_{u \neq v}到其他节点u最短路径长度求和}
+  $$
+
+- clustering coefficient集群系数
+
+$$
+e_v= \frac{v节点相邻两节点也相连个数（三角形个数）}{v节点相邻节点两两对数}\in [0,1]
+$$
+
+- graphlet degree vector(GDV向量) 描述一个节点邻域的连接结构信息。定义好一些子图，去节点邻域匹配。
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230602104957867.png" alt="image-20230602104957867" style="zoom:50%;" />
+
+
+
+
+
 ## 扩展阅读
 
 https://www.geeksforgeeks.org/eigenvector-centrality-centrality-measure
@@ -93,6 +130,32 @@ Graphlet和Wavelet（小波分析）有什么异同？
 除了课程中讲的Centrality之外，还有哪些Centrality指标？（PageRank、Katz Centrality、HITS Hubs and Authorities）
 
 # 传统图机器学习方法-连接
+
+提取link本身的向量，而不是两端节点的向量。
+
+- 最短路径长度
+- 共同邻居，邻居交并比jaccard，log(共同好友的连接数分之1)再求和Adamic_Adar(共同好友是不是海王)
+- Katz index: u,v 直接长度为k的路径个数 ，计算邻接矩阵的幂
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 扩展阅读
 
