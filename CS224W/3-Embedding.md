@@ -3,6 +3,101 @@
 > 同济子豪兄 2023-1-18
 >
 
+### 概述
+
+避免了人工特征工程。
+
+图嵌入向量：低维，连续，稠密，嵌入d维空间的一个点
+
+deepwalk
+
+### 基本框架
+
+编码器：嵌入到某个空间，得到向量，使得图中相似的节点嵌入向量相似度也大，这也是优化目标
+
+解码器：相似度，（人为定义相似度）可以是内积
+
+最简单的编码器：查表(浅编码器)
+
+![image-20230610152804768](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610152804768.png)
+
+![image-20230610152916991](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610152916991.png)
+
+
+
+![image-20230610152826911](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610152826911.png)
+
+### 基于随机游走的嵌入方法
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610153236222.png" alt="image-20230610153236222" style="zoom: 50%;" />
+
+从图中每个结点u开始随机固定长度游走，以某个策略R
+
+对每个节点u，记录从它开始的游走路径上经过的节点集合N_R(u)，可以重复
+
+最优化嵌入：给定节点u,预测到N_R(u)的概率
+
+![image-20230610155231400](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610155231400.png)
+
+![image-20230610155330457](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610155330457.png)
+
+复杂度O(|V^2|): 降低复杂度方法，负采样，即现在只要算和这些负样本的内积，而不是和所有人的内积。
+
+### Node2vec
+
+控制随机游走策略的一种方式
+
+两个参数：
+
+- p: 返回前一节点
+- q: ratio of BFS vs. DFS
+
+### 矩阵分解和随机游走
+
+将邻接矩阵A分解，
+$$
+A = Z^TZ
+$$
+Z可以视为一个图嵌入。使用的相似度很简单，如果两个结点之间有一条边，就相似。
+
+![image-20230610161259830](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610161259830.png)
+
+如果结点2,4之间有边，那Z.T的第2行和Z的第四列相乘为1，否则为0（正交）。
+
+Z矩阵行小于列，只能通过数值计算方法近似求解。
+
+![image-20230610161547673](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610161547673.png)
+
+deepwalk可以视为对以下矩阵做分解：
+
+![image-20230610161625870](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610161625870.png)
+
+### 讨论
+
+缺点：
+
+只能对静态数据
+
+与起点相近的结点肯定会被采样
+
+### 嵌入整张图
+
+直接对所有节点嵌入求和
+
+引入虚拟节点，与所有节点相连，求虚拟节点的嵌入
+
+**匿名随机游走**
+
+见到一个没见过的节点就发一个号，认号不认人
+
+![image-20230610162256086](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610162256086.png)
+
+将bag-of-anonymous walks作为嵌入
+
+![image-20230610162604918](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230610162604918.png)
+
+
+
 ## 视频
 
 中文精讲视频：https://www.bilibili.com/video/BV1AP4y1r7Pz

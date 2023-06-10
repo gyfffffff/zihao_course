@@ -53,7 +53,9 @@ $$
 
 <img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230602104957867.png" alt="image-20230602104957867" style="zoom:50%;" />
 
+- 查询NetworkX
 
+  
 
 
 
@@ -134,28 +136,10 @@ Graphlet和Wavelet（小波分析）有什么异同？
 提取link本身的向量，而不是两端节点的向量。
 
 - 最短路径长度
-- 共同邻居，邻居交并比jaccard，log(共同好友的连接数分之1)再求和Adamic_Adar(共同好友是不是海王)
-- Katz index: u,v 直接长度为k的路径个数 ，计算邻接矩阵的幂
+- （局部信息）共同邻居，邻居交并比jaccard，log(共同好友的连接数分之1)再求和Adamic_Adar(共同好友是不是海王)  
+- （全图信息）Katz index: u,v 直接长度为k的路径个数 ，计算邻接矩阵的幂即可。长度为无穷的katz系数，成一个折减系数：
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230609230529799.png" alt="image-20230609230529799" style="zoom:50%;" />
 
 ## 扩展阅读
 
@@ -188,6 +172,14 @@ A和B都知道梅西，C和D都知道同济子豪兄，请问哪对人物更容�
 为什么不直接把link两端节点的向量特征concat到一起，作为link的向量特征
 
 # 传统图机器学习方法-全图
+
+把图变成D维向量，向量可以反映全图特征。
+
+- Bag-of-*  :就是数数
+- graphlet kernel: bag-of-graphlet 做内积,复杂度高
+-  Weisfeiler-Lehman Kernel : 颜色编码，对bag-of-color做内积. gklearn库
+
+
 
 ## 扩展阅读
 
