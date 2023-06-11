@@ -28,6 +28,90 @@ GCN论文：Semi-Supervised Classification with Graph Convolutional Networks, IC
 关键词：
 Machine Learning, Deep Learning, Neural Networks, Graph Neural Networks, GNN, Graph Convolutional Neural Networks, GCN, Knowledge Graph
 
+### 计算图
+
+消息传递框架
+
+图神经网络的层数，是计算图的层数
+
+一般两层
+
+![image-20230611112234572](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611112234572.png)
+
+### 数学形式
+
+最初的输入向量128*1：是节点的属性特征
+
+![image-20230611112600155](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611112600155.png)
+
+![image-20230611112611613](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611112611613.png)
+
+![image-20230611112619803](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611112619803.png)
+
+W_k是神经网络权重。
+
+蓝框中的内容是求平均，是顺序无关的。
+
+![image-20230611112911321](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611112911321.png)
+
+但是这样表示是不科学的，因为没有考虑对方的连接数。
+
+![image-20230611113645737](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611113645737.png)
+
+A被叫做Normalized diffusion matrix
+
+它的特征值在[-1,1]
+
+特征值1对应的特征向量是D^{1/2}***1**
+
+A^K 的特征值在[-1,1]
+
+![image-20230611114725852](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611114725852.png)
+
+### 计算图 改进
+
+每个结点都听到自己的声音
+
+![image-20230611123340938](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611123340938.png)
+
+![](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611115456004.png)
+
+![image-20230611115735363](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611115735363.png)
+
+### 如何训练神经网络
+
+监督学习：最优化损失函数
+
+一个计算图是一个样本
+
+![image-20230611120837341](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611120837341.png)
+
+
+
+无监督：自监督，用图自身信息（随机游走，node2vec）
+
+![image-20230611121242689](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20230611121242689.png)
+
+### 图神经网络的优点
+
+可泛化
+
+捕捉更多信息
+
+可以利用结点属性特征
+
+线性增加复杂度
+
+参数不多
+
+
+
+
+
+
+
+
+
 ## 扩展阅读
 
 论文主页：https://arxiv.org/abs/1609.02907

@@ -17,13 +17,23 @@ Youtube视频：https://www.youtube.com/watch?v=MH4yvtgAR-4&list=PLoROMvodv4rPLK
 
 本讲是图神经网络基础课，先介绍了图机器学习、图深度学习、表示学习、图嵌入等基础概念，引出图神经网络在各类图机器学习任务的应用场景，及其研究领域综述和学习路径。
 
-在图数据上运行深度学习算法，会遇到诸多难点和挑战：参数量（过拟合）问题、归纳泛化问题、顺序不变问题、过平滑问题等。
+在图数据上运行深度学习算法，会遇到诸多难点和挑战：**参数量（过拟合）问题、归纳泛化问题、顺序不变问题、过平滑问题等**。
 
 以图卷积神经网络GCN为例，介绍了消息传递计算图的构建方式、邻域特征聚合函数、GNN层数计算等基本概念。
 
 关键词：
 
 Machine Learning, Deep Learning, Graph Neural Networks, GNN, Graph Convolutional Neural Networks, GCN, Knowledge Graph
+
+
+
+
+
+
+
+
+
+
 
 ## 扩展阅读
 
